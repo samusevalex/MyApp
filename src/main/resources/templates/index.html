@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+    <a th:href="@{/addProduct}">Добавить</a>
+    <a th:href="@{/deleteProduct}">Удалить</a>
+
+    <form th:action="@{/}"
+          method="GET">
+        <p>Поиск: <input type="text" name="name"/></p>
+        <input type="submit" value="Поиск"/>
+    </form>
+
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Описание</th>
+        </tr>
+        <tr th:each ="product : ${productList}">
+            <td>
+                <a th:utext="${product.getId}" th:href="@{'/editProduct/' + ${product.getId}}">...</a>
+            </td>
+            <td th:utext="${product.getName}">...</td>
+            <td th:utext="${product.getDescription}">...</td>
+        </tr>
+    </table>
+</body>
+
+</html>

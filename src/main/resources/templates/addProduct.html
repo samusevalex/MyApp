@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>AddProduct</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<form th:action="@{/addProduct}"
+      th:object="${product}"
+      method="POST">
+    <table>
+        <tr>
+            <td>Название:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>Описание:</td>
+            <td><textarea th:field="*{description}"/></textarea></td>
+        </tr>
+    </table>
+    <input type="submit" value="Добавить"/>
+</form>
+</body>
+</html>
